@@ -1,0 +1,15 @@
+{
+  "name": "{{ name }}",
+  "author": "{{ author }}",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "budo src/main.coffee:dist/build.js --no-debug --live --port 3000 -- -t coffeeify",
+    "build": "browserify -t coffeeify src/main.coffee > dist/build.js && lessc src/main.less dist/build.css"
+  },
+  "devDependencies": {
+    "budo": "^8.0.4",
+    "coffeeify": "^2.0.1",
+    "less": "^2.6.1",
+    "vue": "^1.0.17"
+  }
+}
