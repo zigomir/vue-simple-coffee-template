@@ -19,9 +19,12 @@ $ open http://localhost:3000
 
 - `budo` - `browserify` & simple http server combined (https://github.com/mattdesl/budo)
 - `coffeeify` - we still love `CoffeeScript`, right?
-- `less` - write less, generate more CSS - [development mode for watch](http://lesscss.org/usage/#using-less-in-the-browser)
-& reload inside browser (check index.html)
+- `less`
 - `vue` - yeah
+
+## Split vendor and app builds
+
+Because app changes a lot more often than vendor. Let browser cache it.
 
 ## Motive
 
