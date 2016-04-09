@@ -19,7 +19,7 @@ $ open http://localhost:3000
 
 - `budo` - `browserify` & simple http server combined (https://github.com/mattdesl/budo)
 - `coffeeify` - we still love `CoffeeScript`, right?
-- `less`
+- `postcss` with `autoprefixer` and `cssnano`
 - `vue` - yeah
 
 ## Split vendor and app builds

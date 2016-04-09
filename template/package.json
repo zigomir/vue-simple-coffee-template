@@ -3,18 +3,22 @@
   "author": "author",
   "version": "0.3.0",
   "scripts": {
-    "start": "npm run watch-less & npm run build-vendor & budo src/main.coffee:dist/app.js --no-debug --live --port 3000 -- -t coffeeify -x=vue",
-    "build": "NODE_ENV=production npm run build-app && NODE_ENV=production npm run build-vendor && lessc src/main.less dist/build.css",
+    "start": "npm run build-css:watch & npm run build-vendor & budo src/main.coffee:dist/app.js --no-debug --live --port 3000 -- -t coffeeify -x=vue",
+    "build": "NODE_ENV=production npm run build-app && NODE_ENV=production npm run build-vendor && npm run build-css:build",
     "build-app": "browserify -t coffeeify src/main.coffee --external=vue | uglifyjs -c warnings=false -m > dist/app.js",
     "build-vendor": "browserify --require=vue | uglifyjs -c warnings=false -m > dist/vendor.js",
-    "watch-less": "nodemon --watch src --watch src -e less --exec 'npm run build-less'",
-    "build-less": "lessc src/main.less dist/build.css"
+    "build-css": "postcss --use autoprefixer src/main.css > dist/build.css",
+    "build-css:build": "postcss --use autoprefixer --use cssnano src/main.css > dist/build.css",
+    "build-css:watch": "nodemon --watch src -e css --exec 'npm run build-css'"
   },
   "devDependencies": {
+    "autoprefixer": "^6.3.6",
     "budo": "^8.0.4",
     "coffeeify": "^2.0.1",
+    "cssnano": "^3.5.2",
     "less": "^2.6.1",
     "nodemon": "^1.9.1",
+    "postcss-cli": "^2.5.1",
     "uglify-js": "^2.6.2",
     "vue": "^1.0.21"
   }
