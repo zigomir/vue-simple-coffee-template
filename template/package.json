@@ -1,11 +1,13 @@
 {
-  "name": "{{ name }}",
-  "author": "{{ author }}",
-  "version": "0.2.0",
+  "name": "name",
+  "author": "author",
+  "version": "0.3.0",
   "scripts": {
-    "start": "npm run watch-less & budo src/main.coffee:dist/build.js --no-debug --live --port 3000 -- -t coffeeify",
+    "start": "npm run watch-less & npm run build-vendor & budo src/main.coffee:dist/app.js --no-debug --live --port 3000 -- -t coffeeify -x=vue",
+    "build": "npm run build-app && npm run build-vendor && lessc src/main.less dist/build.css",
+    "build-app": "browserify -t coffeeify src/main.coffee -o dist/app.js --external=vue",
+    "build-vendor": "browserify -o dist/vendor.js --require=vue",
     "watch-less": "nodemon --watch src --watch src -e less --exec 'npm run build-less'",
-    "build": "browserify -t coffeeify src/main.coffee > dist/build.js && lessc src/main.less dist/build.css",
     "build-less": "lessc src/main.less dist/build.css"
   },
   "devDependencies": {
