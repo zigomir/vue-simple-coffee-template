@@ -4,9 +4,9 @@
   "version": "0.3.0",
   "scripts": {
     "start": "npm run watch-less & npm run build-vendor & budo src/main.coffee:dist/app.js --no-debug --live --port 3000 -- -t coffeeify -x=vue",
-    "build": "npm run build-app && npm run build-vendor && lessc src/main.less dist/build.css",
-    "build-app": "browserify -t coffeeify src/main.coffee -o dist/app.js --external=vue",
-    "build-vendor": "browserify -o dist/vendor.js --require=vue",
+    "build": "NODE_ENV=production npm run build-app && NODE_ENV=production npm run build-vendor && lessc src/main.less dist/build.css",
+    "build-app": "browserify -t coffeeify src/main.coffee --external=vue | uglifyjs -c warnings=false -m > dist/app.js",
+    "build-vendor": "browserify --require=vue | uglifyjs -c warnings=false -m > dist/vendor.js",
     "watch-less": "nodemon --watch src --watch src -e less --exec 'npm run build-less'",
     "build-less": "lessc src/main.less dist/build.css"
   },
@@ -15,6 +15,7 @@
     "coffeeify": "^2.0.1",
     "less": "^2.6.1",
     "nodemon": "^1.9.1",
+    "uglify-js": "^2.6.2",
     "vue": "^1.0.21"
   }
 }
