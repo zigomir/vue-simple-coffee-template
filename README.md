@@ -24,6 +24,8 @@ $ open http://localhost:3000
 
 ## Split vendor and app builds
 
+[Source article](http://blog.revathskumar.com/2016/02/browserify-separate-app-and-vendor-bundles.html)
+
 Because app changes a lot more often than vendor. Let browser cache it.
 
 ## Motive
