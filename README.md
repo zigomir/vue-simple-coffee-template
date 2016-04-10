@@ -22,7 +22,7 @@ $ open http://localhost:3000
 - `postcss` with `autoprefixer` and `cssnano`
 - `vue` - yeah
 
-## Split vendor and app builds
+## Split vendor and app builds with cache busting
 
 [Source article](http://blog.revathskumar.com/2016/02/browserify-separate-app-and-vendor-bundles.html)
 
