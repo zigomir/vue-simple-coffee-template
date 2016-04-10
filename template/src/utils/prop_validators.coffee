@@ -10,15 +10,11 @@ objectProp = (required = true) ->
     required : required
 
 stringProp = (required = true) ->
-    type: String,
-    required: required
+    type     : String
+    required : required
 
 arrayProp = (required = true) ->
     type     : Array
     required : required
 
-module.exports =
-    numberProp : numberProp
-    objectProp : objectProp
-    stringProp : stringProp
-    arrayProp  : arrayProp
+module.exports = { numberProp, objectProp, stringProp, arrayProp }
