@@ -4,7 +4,7 @@
   "version": "0.4.0",
   "scripts": {
     "start": "npm run css:watch & npm run vendor & budo src/main.coffee:dist/app.js --no-debug --live --port 3000 -- -t coffeeify -x=vue",
-    "build": "NODE_ENV=production npm run app && NODE_ENV=production npm run vendor && npm run css:dist && hashly ./dist ./dist && node hash-replacer.js",
+    "build": "NODE_ENV=production npm run app && NODE_ENV=production npm run vendor && npm run css:dist && hashly ./dist ./dist && recalper index.html dist/manifest.json dist/index.html path hashedPath dist",
     "app": "browserify -t coffeeify src/main.coffee --external=vue | uglifyjs -c warnings=false -m > dist/app.js",
     "vendor": "browserify --require=vue | uglifyjs -c warnings=false -m > dist/vendor.js",
     "css": "postcss --use autoprefixer src/main.css > dist/build.css",
@@ -19,6 +19,7 @@
     "hashly": "^0.4.9",
     "nodemon": "^1.9.1",
     "postcss-cli": "^2.5.1",
+    "recalper": "^0.1.1",
     "uglify-js": "^2.6.2",
     "vue": "^1.0.21"
   }
