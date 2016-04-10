@@ -17,7 +17,6 @@
     "coffeeify": "^2.0.1",
     "cssnano": "^3.5.2",
     "hashly": "^0.4.9",
-    "less": "^2.6.1",
     "nodemon": "^1.9.1",
     "postcss-cli": "^2.5.1",
     "uglify-js": "^2.6.2",
