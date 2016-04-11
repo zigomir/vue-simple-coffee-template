@@ -1,0 +1,15 @@
+{
+  "prompts": {
+    "es6": {
+      "type": "confirm",
+      "message": "Use ES6? (Otherwise you'll get CoffeeScript, mwahaha)."
+    }
+  },
+  "filters": {
+    ".babelrc": "es6",
+    "package.coffee.json": "!es6",
+    "package.js.json": "es6",
+    "src/**/*.js": "es6",
+    "src/**/*.coffee": "!es6"
+  }
+}

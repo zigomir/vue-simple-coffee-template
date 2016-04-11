@@ -10,6 +10,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 $ npm install -g vue-cli
 $ vue init zigomir/vue-simple-coffee-template my-project
 $ cd my-project
+$ mv package.*.json package.json # This is necessary for now
 $ npm install
 $ npm start
 $ open http://localhost:3000
@@ -18,7 +19,7 @@ $ open http://localhost:3000
 ## Dependencies breakdown
 
 - `budo` - `browserify` & simple http server combined (https://github.com/mattdesl/budo)
-- `coffeeify` - we still love `CoffeeScript`, right?
+- `coffee` or `babel`
 - `postcss` with `autoprefixer` and `cssnano`
 - `vue` - yeah
 
