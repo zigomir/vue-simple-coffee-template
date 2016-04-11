@@ -1,6 +1,6 @@
-# Vue Simple Coffee Template
+# Vue Simple Template
 
-> A simple Vue, CoffeeScript, Less & Browserify setup.
+> A simple Vue template. Coffee or Babel, browserify and post-css.
 
 ## Usage
 
@@ -8,7 +8,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init zigomir/vue-simple-coffee-template my-project
+$ vue init zigomir/vue-simple-template my-project
 $ cd my-project
 $ mv package.*.json package.json # This is necessary for now
 $ npm install
@@ -33,10 +33,10 @@ Because app changes a lot more often than vendor. Let browser cache it.
 
 Simpler = Better.
 
-With `CoffeeScript's` `"""` (triple quote) multiline strings we can easily write markup in `.coffee` files so we can get
-rid of whole `vueify` package (which also has some other peer dependencies as `babel-core`,
-`babel-plugin-transform-runtime`, `babel-preset-es2015`, `babel-preset-stage-2` and `babel-runtime`). - Too much unknown
-stuff.
+With `CoffeeScript's` `"""` (triple quote) multiline strings we can easily write markup in `.coffee` files. Same goes
+for ES6 template strings ``` (back tick). Then we don't need whole `vueify` package
+(which also has some other peer dependencies as `babel-core`, `babel-plugin-transform-runtime`, `babel-preset-es2015`,
+`babel-preset-stage-2` and `babel-runtime`).
 
 ## Deployment with [surge](https://surge.sh/)
 

@@ -2,7 +2,7 @@
   "prompts": {
     "es6": {
       "type": "confirm",
-      "message": "Use ES6? (Otherwise you'll get CoffeeScript, mwahaha)."
+      "message": "Use ES6? - Otherwise you'll get CoffeeScript ;)"
     }
   },
   "filters": {
