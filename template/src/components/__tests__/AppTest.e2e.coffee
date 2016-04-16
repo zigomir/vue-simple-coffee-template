@@ -2,7 +2,7 @@
 Vue        = require 'vue'
 App        = require '../App.coffee'
 
-describe 'App', ->
+describe 'E2E: App', ->
   # TODO: extract boilerplate
   beforeEach ->
     # Create a placeholder for Vue App element
@@ -15,7 +15,7 @@ describe 'App', ->
       components : { App }
 
   afterEach ->
-    @vm.$destroy(no)
+    @vm.$destroy()
     window.app.remove() # Clean up the DOM
 
   it 'renders template', ->
