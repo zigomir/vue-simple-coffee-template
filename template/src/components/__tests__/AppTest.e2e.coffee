@@ -3,24 +3,24 @@ Vue        = require 'vue'
 App        = require '../App.coffee'
 
 describe 'E2E: App', ->
-  beforeEach ->
-    @vm = new Vue
+  getComponent = ->
+    return new Vue
       template   : '<div><app v-ref:component></app></div>'
       components : { App }
 
-    @vm.$mount()
-
-  afterEach ->
-    @vm.$destroy()
-
   it 'renders template', ->
-    expect(@vm.$el.textContent).to.have.string('Hello Coffee')
-    expect(@vm.$el.textContent).to.have.string('Counter: 0')
+    vm = getComponent().$mount()
+
+    expect(vm.$el.textContent).to.have.string('Hello Coffee')
+    expect(vm.$el.textContent).to.have.string('Counter: 0')
 
   it 'reacts to click', (done) ->
-    expect(@vm.$el.textContent).to.have.string('Counter: 0')
-    @vm.$refs.component.countUp()
+    vm = getComponent().$mount()
+    component = vm.$refs.component
 
-    Vue.nextTick =>
-      expect(@vm.$el.textContent).to.have.string('Counter: 1')
+    expect(vm.$el.textContent).to.have.string('Counter: 0')
+    component.countUp()
+
+    component.$nextTick ->
+      expect(vm.$el.textContent).to.have.string('Counter: 1')
       done()

@@ -23,7 +23,8 @@ $ open http://localhost:3000
 - `coffee` or `babel`
 - `postcss` with `autoprefixer` and `cssnano`
 - `vue` - yeah
-- `testem`, `mocha` and `chai` for testing story with basic unit and e2e test examples
+- `testem`, `mocha` and `chai` for testing story with basic unit and e2e test examples thanks to
+[this presentation](http://www.slideshare.net/coulix/vuejs-testing)
 
 ## Split vendor and app builds with cache busting
 

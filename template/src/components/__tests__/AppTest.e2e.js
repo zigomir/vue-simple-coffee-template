@@ -1,34 +1,32 @@
-
 import { expect } from 'chai'
 import Vue from 'vue'
 import App from '../App.js'
 
 describe('E2E: App', () => {
-  beforeEach(function () {
-    this.vm = new Vue({
+  const getComponent = () => {
+    return new Vue({
       template: '<div><app v-ref:component></app></div>',
       components: { App }
     })
+  }
 
-    this.vm.$mount()
+  it('renders template', () => {
+    const vm = getComponent().$mount()
+
+    expect(vm.$el.textContent).to.have.string('Hello ES6')
+    expect(vm.$el.textContent).to.have.string('Counter: 0')
   })
 
-  afterEach(function () {
-    this.vm.$destroy()
-  })
+  it('reacts to click', (done) => {
+    const vm = getComponent().$mount()
+    const component = vm.$refs.component
 
-  it('renders template', function () {
-    expect(this.vm.$el.textContent).to.have.string('Hello ES6')
-    expect(this.vm.$el.textContent).to.have.string('Counter: 0')
-  })
+    expect(vm.$el.textContent).to.have.string('Counter: 0')
+    component.countUp()
 
-  it('reacts to click', function (done) {
-    expect(this.vm.$el.textContent).to.have.string('Counter: 0')
-    this.vm.$refs.component.countUp()
-
-    Vue.nextTick(function () {
-      expect(this.vm.$el.textContent).to.have.string('Counter: 1')
+    component.$nextTick(() => {
+      expect(vm.$el.textContent).to.have.string('Counter: 1')
       done()
-    }.bind(this))
+    })
   })
 })
