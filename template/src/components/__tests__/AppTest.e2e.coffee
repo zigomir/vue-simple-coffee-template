@@ -3,29 +3,24 @@ Vue        = require 'vue'
 App        = require '../App.coffee'
 
 describe 'E2E: App', ->
-  # TODO: extract boilerplate
   beforeEach ->
-    # Create a placeholder for Vue App element
-    appElement = document.createElement 'app'
-    appElement.id = 'app'
-    document.getElementById('mocha').appendChild appElement
-
     @vm = new Vue
-      el         : '#mocha'
+      template   : '<div><app v-ref:component></app></div>'
       components : { App }
+
+    @vm.$mount()
 
   afterEach ->
     @vm.$destroy()
-    window.app.remove() # Clean up the DOM
 
   it 'renders template', ->
-    expect(window.app.innerHTML).to.have.string('Hello Coffee')
-    expect(window.app.innerHTML).to.have.string('Counter: 0')
+    expect(@vm.$el.textContent).to.have.string('Hello Coffee')
+    expect(@vm.$el.textContent).to.have.string('Counter: 0')
 
   it 'reacts to click', (done) ->
-    expect(window.app.innerHTML).to.have.string('Counter: 0')
-    @vm.$children[0].countUp() # TODO: don't rely on first child here?
+    expect(@vm.$el.textContent).to.have.string('Counter: 0')
+    @vm.$refs.component.countUp()
 
-    Vue.nextTick ->
-      expect(window.app.innerHTML).to.have.string('Counter: 1')
+    Vue.nextTick =>
+      expect(@vm.$el.textContent).to.have.string('Counter: 1')
       done()

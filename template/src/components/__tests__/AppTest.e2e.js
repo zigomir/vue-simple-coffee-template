@@ -5,34 +5,30 @@ import App from '../App.js'
 
 describe('E2E: App', () => {
   beforeEach(function () {
-    // Create a placeholder for Vue App element
-    var appElement = document.createElement('app')
-    appElement.id = 'app'
-    document.getElementById('mocha').appendChild(appElement)
-
     this.vm = new Vue({
-      el: '#mocha',
+      template: '<div><app v-ref:component></app></div>',
       components: { App }
     })
+
+    this.vm.$mount()
   })
 
   afterEach(function () {
     this.vm.$destroy()
-    window.app.remove() // Clean up the DOM
   })
 
   it('renders template', function () {
-    expect(window.app.innerHTML).to.have.string('Hello ES6')
-    expect(window.app.innerHTML).to.have.string('Counter: 0')
+    expect(this.vm.$el.textContent).to.have.string('Hello ES6')
+    expect(this.vm.$el.textContent).to.have.string('Counter: 0')
   })
 
   it('reacts to click', function (done) {
-    expect(window.app.innerHTML).to.have.string('Counter: 0')
-    this.vm.$children[0].countUp() // TODO: don't rely on first child here?
+    expect(this.vm.$el.textContent).to.have.string('Counter: 0')
+    this.vm.$refs.component.countUp()
 
     Vue.nextTick(function () {
-      expect(window.app.innerHTML).to.have.string('Counter: 1')
+      expect(this.vm.$el.textContent).to.have.string('Counter: 1')
       done()
-    })
+    }.bind(this))
   })
 })
