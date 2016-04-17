@@ -4,6 +4,9 @@
   "version": "0.1.0",
   "scripts": {
     "start": "npm run css:watch & npm run vendor & budo src/main.coffee:dist/app.js --no-debug --live --port 3000 -- -t coffeeify -x=vue",
+    {{#if tests}}
+    "test": "watchify -t coffeeify src/test.coffee -o dist/test.js & testem",
+    {{/if}}
     "build": "NODE_ENV=production npm run app && NODE_ENV=production npm run vendor && npm run css:dist && hashly ./dist ./dist && recalper index.html dist/manifest.json dist/index.html path hashedPath dist",
     "app": "browserify -t coffeeify src/main.coffee --external=vue | uglifyjs -c warnings=false -m > dist/app.js",
     "vendor": "browserify --require=vue | uglifyjs -c warnings=false -m > dist/vendor.js",
@@ -14,12 +17,18 @@
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "budo": "^8.0.4",
+    {{#if tests}}
+    "chai": "^3.5.0",
+    {{/if}}
     "coffeeify": "^2.0.1",
     "cssnano": "^3.5.2",
     "hashly": "^0.4.9",
     "nodemon": "^1.9.1",
     "postcss-cli": "^2.5.1",
     "recalper": "^0.1.1",
+    {{#if tests}}
+    "testem": "^1.6.0",
+    {{/if}}
     "uglify-js": "^2.6.2",
     "vue": "^1.0.21"
   }

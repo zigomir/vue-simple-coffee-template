@@ -3,6 +3,10 @@
     "es6": {
       "type": "confirm",
       "message": "Use ES6? - Otherwise you'll get CoffeeScript ;)"
+    },
+    "tests": {
+      "type": "confirm",
+      "message": "Include testem, mocha and chai for testing?"
     }
   },
   "filters": {
@@ -10,7 +14,14 @@
     ".eslintrc": "es6",
     "package.coffee.json": "!es6",
     "package.js.json": "es6",
-    "src/**/*.js": "es6",
-    "src/**/*.coffee": "!es6"
+    "testem.json": "tests",
+    "src/*.js": "es6",
+    "src/components/*.js": "es6",
+    "src/*.coffee": "!es6",
+    "src/components/*.coffee": "!es6",
+    "src/test.js": "es6 && tests",
+    "src/test.coffee": "!es6 && tests",
+    "src/components/__tests__/*.js": "es6 && tests",
+    "src/components/__tests__/*.coffee": "!es6 && tests"
   }
 }
