@@ -22,7 +22,7 @@ describe('E2E: App', () => {
   })
 
   it('renders template', function () {
-    expect(window.app.innerHTML).to.have.string('Hello Coffee')
+    expect(window.app.innerHTML).to.have.string('Hello ES6')
     expect(window.app.innerHTML).to.have.string('Counter: 0')
   })
 
