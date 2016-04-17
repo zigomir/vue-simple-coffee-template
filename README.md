@@ -23,8 +23,12 @@ $ open http://localhost:3000
 - `coffee` or `babel`
 - `postcss` with `autoprefixer` and `cssnano`
 - `vue` - yeah
-- `testem`, `mocha` and `chai` for testing story with basic unit and e2e test examples thanks to
-[this presentation](http://www.slideshare.net/coulix/vuejs-testing)
+- `testem`, `mocha` and `chai` for testing story with basic unit and e2e test examples
+
+## Testing
+
+- test examples based on [this presentation](http://www.slideshare.net/coulix/vuejs-testing). Thanks the author!
+- another good Vue tests available on [vue-select component](https://github.com/sagalbot/vue-select/blob/master/test/unit/Select.spec.js)
 
 ## Split vendor and app builds with cache busting
 
