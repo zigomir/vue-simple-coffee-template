@@ -4,6 +4,10 @@
       "type": "confirm",
       "message": "Use ES6? - Otherwise you'll get CoffeeScript ;)"
     },
+    "code": {
+      "type": "confirm",
+      "message": "Visual Studio Code user?"
+    },
     "tests": {
       "type": "confirm",
       "message": "Include testem, mocha and chai for testing?"
@@ -12,6 +16,7 @@
   "filters": {
     ".babelrc": "es6",
     ".eslintrc": "es6",
+    "jsconfig.json": "code && es6",
     "package.coffee.json": "!es6",
     "package.js.json": "es6",
     "testem.json": "tests",
