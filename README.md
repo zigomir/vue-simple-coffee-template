@@ -6,15 +6,21 @@
 
 This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 
-``` bash
-$ npm install -g vue-cli
-$ vue init zigomir/vue-simple-template my-project
-$ cd my-project
-$ mv package.*.json package.json
-$ npm install
-$ npm start
-$ npm test
-$ open http://localhost:3000
+```sh
+npm install -g vue-cli
+vue init zigomir/vue-simple-template my-project
+cd my-project
+mv package.*.json package.json
+npm install
+npm start
+open http://localhost:3000
+```
+
+### Testing
+
+```sh
+npm test
+npm run test:watch
 ```
 
 ## Dependencies breakdown
