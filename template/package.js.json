@@ -10,9 +10,9 @@
     {{/if}}
     "lint": "eslint src",
     "app": "browserify -t rollupify -t babelify src/main.js --external=vue -o dist/app.js",
-    "app:dist": "NODE_ENV=production npm run app && uglifyjs dist/app.js --compress --mangle -o dist/app.min.js",
+    "app:dist": "NODE_ENV=production npm run app && uglifyjs dist/app.js --compress warnings=false --mangle -o dist/app.min.js",
     "vendor": "browserify --require=vue -o dist/vendor.js",
-    "vendor:dist": "NODE_ENV=production npm run vendor && uglifyjs dist/vendor.js --compress --mangle -o dist/vendor.min.js",
+    "vendor:dist": "NODE_ENV=production npm run vendor && uglifyjs dist/vendor.js --compress warnings=false --mangle -o dist/vendor.min.js",
     "css": "postcss --use autoprefixer src/main.css > dist/build.css",
     "css:dist": "postcss --use autoprefixer --use cssnano src/main.css > dist/build.css",
     "css:watch": "nodemon --watch src -e css --exec 'npm run css'",
