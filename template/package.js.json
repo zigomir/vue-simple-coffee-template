@@ -8,12 +8,16 @@
     "test": "npm run lint & watchify -t babelify src/test.js -o dist/test.js & testem",
     {{/if}}
     "lint": "eslint src",
-    "build": "NODE_ENV=production npm run app && NODE_ENV=production npm run vendor && npm run css:dist && hashly ./dist ./dist && recalper index.html dist/manifest.json dist/index.html path hashedPath dist",
-    "app": "browserify -t rollupify -t babelify src/main.js --external=vue | uglifyjs -c warnings=false -m > dist/app.js",
-    "vendor": "browserify --require=vue | uglifyjs -c warnings=false -m > dist/vendor.js",
+    "app": "browserify -t rollupify -t babelify src/main.js --external=vue -o dist/app.js",
+    "app:dist": "NODE_ENV=production npm run app && uglifyjs dist/app.js --compress --mangle -o dist/app.min.js",
+    "vendor": "browserify --require=vue -o dist/vendor.js",
+    "vendor:dist": "NODE_ENV=production npm run vendor && uglifyjs dist/vendor.js --compress --mangle -o dist/vendor.min.js",
     "css": "postcss --use autoprefixer src/main.css > dist/build.css",
     "css:dist": "postcss --use autoprefixer --use cssnano src/main.css > dist/build.css",
-    "css:watch": "nodemon --watch src -e css --exec 'npm run css'"
+    "css:watch": "nodemon --watch src -e css --exec 'npm run css'",
+    "clean": "del dist/*",
+    "build": "npm run clean && npm run app:dist && npm run vendor:dist && npm run css:dist && npm run cachebust",
+    "cachebust": "hashly ./dist ./dist && recalper index.dist.html dist/manifest.json dist/index.html path hashedPath"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
@@ -24,6 +28,7 @@
     "chai": "^3.5.0",
     {{/if}}
     "cssnano": "^3.5.2",
+    "del-cli": "^0.2.0",
     "eslint": "^2.9.0",
     "eslint-config-standard": "^5.3.1",
     "eslint-plugin-promise": "^1.1.0",
