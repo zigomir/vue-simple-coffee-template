@@ -17,7 +17,7 @@
     "css:watch": "nodemon --watch src -e css --exec 'npm run css'",
     "clean": "del dist/*",
     "build": "npm run clean && npm run app:dist && npm run vendor:dist && npm run css:dist && npm run cachebust",
-    "cachebust": "hashly ./dist ./dist && recalper index.dist.html dist/manifest.json dist/index.html path hashedPath"
+    "cachebust": "hashly ./dist && recalper index.dist.html dist/manifest.json dist/index.html path hashedPath"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
