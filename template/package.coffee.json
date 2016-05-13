@@ -16,20 +16,20 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
-    "budo": "^8.0.4",
+    "budo": "^8.2.2",
     {{#if tests}}
     "chai": "^3.5.0",
     {{/if}}
     "coffeeify": "^2.0.1",
     "cssnano": "^3.5.2",
     "hashly": "^0.4.9",
-    "nodemon": "^1.9.1",
+    "nodemon": "^1.9.2",
     "postcss-cli": "^2.5.1",
     "recalper": "^0.1.1",
     {{#if tests}}
-    "testem": "^1.6.0",
+    "testem": "^1.7.0",
     {{/if}}
     "uglify-js": "^2.6.2",
-    "vue": "^1.0.21"
+    "vue": "^1.0.24"
   }
 }
