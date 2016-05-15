@@ -10,8 +10,8 @@
     "build": "NODE_ENV=production npm run app && NODE_ENV=production npm run vendor && npm run css:dist && hashly ./dist ./dist && recalper index.html dist/manifest.json dist/index.html path hashedPath dist",
     "app": "browserify -t coffeeify src/main.coffee --external=vue | uglifyjs -c warnings=false -m > dist/app.js",
     "vendor": "browserify --require=vue | uglifyjs -c warnings=false -m > dist/vendor.js",
-    "css": "postcss --use autoprefixer src/main.css > dist/build.css",
-    "css:dist": "postcss --use autoprefixer --use cssnano src/main.css > dist/build.css",
+    "css": "postcss --use autoprefixer src/main.css > dist/app.css",
+    "css:dist": "postcss --use autoprefixer --use cssnano src/main.css > dist/app.css",
     "css:watch": "nodemon --watch src -e css --exec 'npm run css'"
   },
   "devDependencies": {
