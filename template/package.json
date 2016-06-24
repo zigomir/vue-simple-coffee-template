@@ -4,6 +4,7 @@
   "author": "author",
   "scripts": {
     "start": "budo src/main.js:dist/build.js --live --port 3000",
+    "lint": "standard src/**/*.*",
     "build": "NODE_ENV=production browserify -p [ vueify/plugins/extract-css -o dist/build.css ] src/main.js | uglifyjs -c warnings=false -m > dist/build.js"
   },
   "browserify": {
@@ -11,8 +12,13 @@
       "vueify"
     ]
   },
+  "standard": {
+    "plugins": [ "html" ]
+  },
   "devDependencies": {
     "budo": "^8.3.0",
+    "eslint-plugin-html": "^1.5.1",
+    "standard": "^7.1.2",
     "uglify-js-harmony": "^2.6.2",
     "vue": "^2.0.0-alpha.6",
     "vueify": "^9.2.0"

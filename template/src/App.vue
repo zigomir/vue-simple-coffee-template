@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/babel">
 module.exports = {
   data () {
     return {
