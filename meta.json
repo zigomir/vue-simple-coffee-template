@@ -1,32 +1,19 @@
 {
-  "prompts": {
-    "es6": {
-      "type": "confirm",
-      "message": "Use ES6? - Otherwise you'll get CoffeeScript ;)"
+  "schema": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "label": "Project name"
     },
-    "code": {
-      "type": "confirm",
-      "message": "Visual Studio Code user?"
+    "description": {
+      "type": "string",
+      "required": true,
+      "label": "Project description",
+      "default": "A Vue.js project"
     },
-    "tests": {
-      "type": "confirm",
-      "message": "Include testem, mocha and chai for testing?"
+    "author": {
+      "type": "string",
+      "label": "Author"
     }
-  },
-  "filters": {
-    ".babelrc": "es6",
-    ".eslintrc": "es6",
-    "jsconfig.json": "code && es6",
-    "package.coffee.json": "!es6",
-    "package.js.json": "es6",
-    "testem.json": "tests",
-    "src/*.js": "es6",
-    "src/components/*.js": "es6",
-    "src/*.coffee": "!es6",
-    "src/components/*.coffee": "!es6",
-    "src/test.js": "es6 && tests",
-    "src/test.coffee": "!es6 && tests",
-    "src/components/__tests__/*.js": "es6 && tests",
-    "src/components/__tests__/*.coffee": "!es6 && tests"
   }
 }

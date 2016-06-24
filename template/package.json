@@ -1,43 +1,20 @@
 {
-  "name": "vue-simple-template",
-  "author": "zigomir@gmail.com",
-  "description": "This is intended for template development only. If you're reading this, did you run `mv package.*.json package.json`?",
-  "version": "0.2.0",
+  "name": "name",
+  "description": "description",
+  "author": "author",
   "scripts": {
-    "start": "npm run css:watch & npm run vendor & budo src/main.js:dist/app.js --no-debug --live --port 3000 -- -t babelify -x=vue",
-    "test": "npm run lint && testem",
-    "test:watch": "watchify -t babelify src/test.js -o dist/test.js",
-    "lint": "eslint src",
-    "app": "browserify -t rollupify -t babelify src/main.js --external=vue -o dist/app.js",
-    "app:dist": "NODE_ENV=production npm run app && uglifyjs dist/app.js --compress --mangle -o dist/app.min.js",
-    "vendor": "browserify --require=vue -o dist/vendor.js",
-    "vendor:dist": "NODE_ENV=production npm run vendor && uglifyjs dist/vendor.js --compress --mangle -o dist/vendor.min.js",
-    "css": "postcss --use autoprefixer src/main.css > dist/app.css",
-    "css:dist": "postcss --use autoprefixer --use cssnano src/main.css > dist/app.css",
-    "css:watch": "nodemon --watch src -e css --exec 'npm run css'",
-    "clean": "del dist/*",
-    "build": "npm run clean && npm run app:dist && npm run vendor:dist && npm run css:dist && npm run cachebust",
-    "cachebust": "hashly ./dist && recalper index.dist.html dist/manifest.json dist/index.html path hashedPath"
+    "start": "budo src/main.js:dist/build.js --live --port 3000",
+    "build": "NODE_ENV=production browserify -p [ vueify/plugins/extract-css -o dist/build.css ] src/main.js | uglifyjs -c warnings=false -m > dist/build.js"
+  },
+  "browserify": {
+    "transform": [
+      "vueify"
+    ]
   },
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
-    "babel-preset-es2015": "^6.6.0",
-    "babelify": "^7.3.0",
-    "budo": "^8.2.2",
-    "chai": "^3.5.0",
-    "cssnano": "^3.5.2",
-    "del-cli": "^0.2.0",
-    "eslint": "^2.9.0",
-    "eslint-config-standard": "^5.3.1",
-    "eslint-plugin-promise": "^1.1.0",
-    "eslint-plugin-standard": "^1.3.2",
-    "hashly": "^0.4.9",
-    "nodemon": "^1.9.2",
-    "postcss-cli": "^2.5.2",
-    "recalper": "^0.1.1",
-    "rollupify": "^0.3.0",
-    "testem": "^1.7.0",
-    "uglify-js": "^2.6.2",
-    "vue": "^1.0.24"
+    "budo": "^8.3.0",
+    "uglify-js-harmony": "^2.6.2",
+    "vue": "^2.0.0-alpha.6",
+    "vueify": "^9.2.0"
   }
 }
