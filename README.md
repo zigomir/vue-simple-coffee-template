@@ -1,4 +1,4 @@
-# Simple Vue 
+# Simple Vue
 
 > A minimal Vue 2.0 Browserify + `vueify` setup for quick prototyping.
 
@@ -16,7 +16,7 @@ $ npm start
 
 ### What's Included
 
-- `npm start`: Browserify + `vueify`
+- `npm run dev`: Browserify + `vueify`
 - `npm run build`: Production build with HTML/CSS/JS minification.
 
 For more information see the [docs for vueify](https://github.com/vuejs/vueify). Also checkout [breaking changes in vueify 9.0.0](https://github.com/vuejs/vueify/releases/tag/v9.0.0).
