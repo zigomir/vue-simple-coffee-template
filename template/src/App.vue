@@ -8,7 +8,7 @@
 module.exports = {
   data () {
     return {
-      msg: 'Hello Vue 2.0!'
+      msg: `Hello Vue ${1 + 1}.0!`
     }
   }
 }
