@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "budo src/main.js:dist/build.js --live --port 3000",
     "lint": "standard src/**/*.*",
-    "build": "NODE_ENV=production browserify -p [ vueify/plugins/extract-css -o dist/build.css ] src/main.js | uglifyjs -c warnings=false -m > dist/build.js"
+    "build": "NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o dist/build.css ] src/main.js | uglifyjs -c warnings=false -m > dist/build.js"
   },
   "browserify": {
     "transform": [
@@ -14,13 +14,17 @@
     ]
   },
   "standard": {
-    "plugins": [ "html" ]
+    "plugins": [
+      "html"
+    ]
   },
   "devDependencies": {
     "budo": "^8.3.0",
+    "envify": "^3.4.1",
     "eslint-plugin-html": "^1.5.1",
     "standard": "^7.1.2",
     "uglify-js-harmony": "^2.6.2",
+    "uglifyify": "^3.0.2",
     "vue": "^2.0.0-alpha.8",
     "vueify": "^9.2.2"
   }
