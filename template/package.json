@@ -24,7 +24,6 @@
     "eslint-plugin-html": "^1.5.1",
     "standard": "^7.1.2",
     "uglify-js-harmony": "^2.6.2",
-    "uglifyify": "^3.0.2",
     "vue": "^2.0.0-alpha.8",
     "vueify": "^9.2.2"
   }
